@@ -1,19 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useState, useEffect } from 'react'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Projects from './components/Projects'
+import Education from './components/Education'
+import Experience from './components/Experience'
+import Skills from './components/Skills'
+import Resume from './components/Resume'
+import Contact from './components/Contact'
+import { ThemeContext } from './context/ThemeContext'
 import './App.css'
 
-function App() {
+const App = () => {
+  const [dark, setDark] = useState(true)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+  }, [dark])
+
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold">Alisha Walunj</h1>
-        <p className="mt-4 text-xl text-gray-400">
-          Software Engineer
-        </p>
+    <ThemeContext.Provider value={{ dark, setDark }}>
+      <div className="app-root">
+        <Navbar />
+        <section id="home"><Home /></section>
+        <section id="projects"><Projects /></section>
+        <section id="education"><Education /></section>
+        <section id="experience"><Experience /></section>
+        <section id="skills"><Skills /></section>
+        <section id="resume"><Resume /></section>
+        <section id="contact"><Contact /></section>
       </div>
-    </div>
+    </ThemeContext.Provider>
   )
 }
 

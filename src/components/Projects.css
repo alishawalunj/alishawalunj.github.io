@@ -1,0 +1,226 @@
+.projects-section {
+  padding: 7rem 2.5rem;
+  background: var(--bg-2);
+}
+
+.section-inner {
+  max-width: 900px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 520px;
+}
+
+.carousel-scene-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.carousel-scene {
+  perspective: 2000px;
+  width: 420px;
+  height: 500px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.project-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 390px;
+  min-height: 460px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  background: var(--bg-card);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-card--active {
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  z-index: 50;
+}
+
+.project-card:not(.project-card--active) {
+  filter: blur(0.6px) brightness(0.82);
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:not(.project-card--active)::after {
+  opacity: 1;
+}
+
+.card-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  opacity: 0.08;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-year {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-from);
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+.card-links {
+  position: relative;
+  z-index: 3;
+}
+
+.card-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.card-icon-link:hover {
+  background: var(--accent);
+  color: var(--bg-card);
+  transform: scale(1.1);
+  border-color: var(--accent);
+}
+
+.card-icon-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.card-title {
+  font-size: 1.65rem;
+  line-height: 1.25;
+  margin-bottom: 1.1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-desc {
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--tag-bg);
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.carousel-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg-card);
+  color: var(--accent);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.carousel-btn:hover {
+  background: var(--accent);
+  color: var(--bg-card);
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-scene-wrapper button {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 2.2rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: 28px;
+  background: var(--accent);
+  border-radius: 9999px;
+}
+
+.carousel-hint {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 1.2rem;
+}
